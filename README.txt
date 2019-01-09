@@ -4,5 +4,6 @@ The jar can be run using a shell of your choice.
 [OR]
 the MainApp can be run in an IDE.
 It simply asks for a word and returns a query.
+Input -1 to quit the App
 
 NOTE: Minimal Error Handling has been added
