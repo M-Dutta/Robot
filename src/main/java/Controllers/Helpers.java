@@ -63,13 +63,13 @@ public class Helpers {
             if (type.equals("POST"))
                 response = client.execute(requestP);
             assert response != null;
-            String responseString = new BasicResponseHandler().handleResponse(response);
-            return responseString;
+            return new BasicResponseHandler().handleResponse(response);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return def;
     }
+
     public String getRequest(String command) {
         return requestHelper(command,"GET");
     }

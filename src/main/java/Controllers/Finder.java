@@ -7,16 +7,27 @@ import java.net.ProtocolException;
 public class Finder {
     ApiControllers api = new ApiControllers();
 
+    /**
+     * Reset Dictionary Location
+     * @return Word
+     * @throws ProtocolException
+     */
     public Word reset() throws ProtocolException {
         api.firstPageFirstTerm();
         return api.wordWrapper(api.status());
     }
 
-    public Word resetPage() throws ProtocolException {
+    public Word resetPage() {
         api.firtTermOfPage();
         return api.wordWrapper(api.status());
     }
 
+    /**
+     * Checks Pages and Turns
+     * @param item: The Word to be searched
+     * @return Word
+     * @throws ProtocolException
+     */
     public Word checkPage(String item) throws ProtocolException {
         Word lastTerm_word = api.wordWrapper(api.lastTermOfPage());
         Word firstTerm_Word = api.wordWrapper(api.firtTermOfPage());
@@ -37,7 +48,7 @@ public class Finder {
 
     /**
      * NOTE: Doesn't compare words, just checks pages.
-     * @param item
+     * @param item;
      * @return
      * @throws ProtocolException
      */
@@ -65,7 +76,12 @@ public class Finder {
         return w;
     }
 
-
+    /**
+     *
+     * @param item;
+     * @return Word: Final verdict and Word (Can be null if not found)
+     * @throws ProtocolException
+     */
     public Word resultPageHandler(String item) throws ProtocolException {
         reset(); //Start search, all the way from the beginning of the dictionary
         Word w = pageIncrementHandler(item); //Let Page Handler select the Page
