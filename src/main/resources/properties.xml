@@ -1,0 +1,18 @@
+<RestInfo>
+    <base>oke5yaeave.execute-api.us-west-2.amazonaws.com/prod</base>
+    <key>45nWyB981m9BrUSl07jzq1JoakyZu5va7I808oE1</key>
+
+    <status>/status</status>
+
+    <nextPage>/move-to-next-page</nextPage>
+    <prevPage>/move-to-previous-page</prevPage>
+    <firstPage>/jump-to-first-page</firstPage>
+    <lastPage>/jump-to-last-page</lastPage>
+
+
+    <nextTerm>/move-to-next-term</nextTerm>
+    <prevTerm>/move-to-previous-term</prevTerm>>
+    <firstTerm>/jump-to-first-term</firstTerm>>
+    <lastTerm>/jump-to-last-term</lastTerm>>
+
+</RestInfo>
