@@ -1,3 +1,5 @@
+package Drivers;
+
 import Controllers.Finder;
 import Entities.Word;
 
@@ -26,9 +28,9 @@ public class MainApp {
             System.out.println("Insert your Query Word below:");
             Scanner scanner = new Scanner(System.in);
             String query = scanner.nextLine();
+            if (query.equals("-1"))
+                break;
             if (m.queryCheck(query)) {
-                if (m.queryCheck("-1"))
-                        break;
                 m.sendQuery(query);
             }
         }

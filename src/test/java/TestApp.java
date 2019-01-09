@@ -3,10 +3,10 @@ import Controllers.Finder;
 import javax.xml.bind.JAXBException;
 import java.net.ProtocolException;
 
-public class Driver {
+public class TestApp {
     Finder finder= new Finder();
     public static void main (String [] args) throws JAXBException, ProtocolException {
-        Driver d = new Driver();
+        TestApp d = new TestApp();
         d.finder.presenter("A");
         d.finder.presenter("ALKALOID");
 
