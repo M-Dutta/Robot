@@ -114,4 +114,14 @@ public class Finder {
             System.out.println();
         }
     }
+    public String uiPresenter(String item) throws ProtocolException {
+        Word res = resultPageHandler(item);
+        if (res==null || !res.getCurrentTerm().equals(item)) {
+           return "Word Doesn't exist in Dictionary";
+        }
+        else
+            return res.details();
+
+    }
+
     }

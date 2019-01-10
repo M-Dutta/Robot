@@ -54,4 +54,12 @@ public class Word {
         System.out.println("PAGE: "+this.getCurrentPageIndex()+"-"+ this.getCurrentTermIndex());
 
     }
+
+    public String details() {
+
+        return "TERM: " +this.getCurrentTerm()+"\n======\n"+"DEFINITION:\n" +this.getCurrentTermDefinition()+
+                "\n======\n"+"PAGE: "+this.getCurrentPageIndex()+"-"+ this.getCurrentTermIndex()+"\n";
+
+
+    }
 }
