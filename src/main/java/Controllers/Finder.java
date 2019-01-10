@@ -1,12 +1,13 @@
 package Controllers;
 
+import Entities.Messages;
 import Entities.Word;
 
 import java.net.ProtocolException;
 
 public class Finder {
     ApiControllers api = new ApiControllers();
-
+    Messages msg = new Messages();
     /**
      * Reset Dictionary Location
      * @return Word
@@ -44,7 +45,7 @@ public class Finder {
         System.out.println("Switching to Page: "+ (firstTerm_Word.getCurrentPageIndex()-1));
         return api.wordWrapper(api.prevPage());
 
-        }
+    }
 
     /**
      * NOTE: Doesn't compare words, just checks pages.
@@ -58,9 +59,9 @@ public class Finder {
             System.out.println(" Word Doesn't Exist in dictionary");
             return null;
         }
-        if (api.wordWrapper(api.lastPageLastTerm()).getCurrentTerm().equals(item))
+        if (api.wordWrapper(api.lastPageLastTerm()).getCurrentTerm().equalsIgnoreCase(item))
             return api.wordWrapper(api.lastPageLastTerm());
-        if (api.wordWrapper(api.firstPageFirstTerm()).getCurrentTerm().equals(item))
+        if (api.wordWrapper(api.firstPageFirstTerm()).getCurrentTerm().equalsIgnoreCase(item))
             return api.wordWrapper(api.firstPageFirstTerm());
 
         int prevPage = -1;
@@ -91,9 +92,9 @@ public class Finder {
         resetPage(); // Handler's done. Reset the Page
         Word last = api.wordWrapper(api.lastTermOfPage());
         Word current = api.wordWrapper(api.firtTermOfPage());
-        if (last.getCurrentTerm().equals(item))
+        if (last.getCurrentTerm().equalsIgnoreCase(item))
             return last;
-        while (!current.getCurrentTerm().equals(item) || current.getCurrentTerm().equals(last)) {
+        while (!current.getCurrentTerm().equalsIgnoreCase(item) || current.getCurrentTerm().equalsIgnoreCase(last.getCurrentTerm()) ) {
             current = api.wordWrapper(api.next());
         }
         return current;
@@ -105,7 +106,7 @@ public class Finder {
 
     public void presenter(String item) throws ProtocolException {
         Word res = resultPageHandler(item);
-        if (res==null || !res.getCurrentTerm().equals(item)) {
+        if (res==null || !res.getCurrentTerm().equalsIgnoreCase(item)) {
             System.out.println("Word Doesn't exist in Dictionary");
         }
         else {
@@ -116,8 +117,8 @@ public class Finder {
     }
     public String uiPresenter(String item) throws ProtocolException {
         Word res = resultPageHandler(item);
-        if (res==null || !res.getCurrentTerm().equals(item)) {
-           return "Word Doesn't exist in Dictionary";
+        if (res==null || !res.getCurrentTerm().equalsIgnoreCase(item)) {
+           return msg.getNotPresent() ;
         }
         else
             return res.details();

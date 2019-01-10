@@ -3,6 +3,7 @@
     <key>45nWyB981m9BrUSl07jzq1JoakyZu5va7I808oE1</key>
 
     <status>/status</status>
+    <file>/src/main/resources/properties.xml</file>
 
     <nextPage>/move-to-next-page</nextPage>
     <prevPage>/move-to-previous-page</prevPage>

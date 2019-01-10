@@ -1,15 +1,32 @@
 import Controllers.Finder;
-
-import javax.xml.bind.JAXBException;
+import Entities.Messages;
+import org.junit.Test;
 import java.net.ProtocolException;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 
 public class TestApp {
     Finder finder= new Finder();
-    public static void main (String [] args) throws JAXBException, ProtocolException {
-        TestApp d = new TestApp();
-        d.finder.presenter("A");
-        d.finder.presenter("ALKALOID");
+    Messages msg = new Messages();
+    @Test
+    public void matchTest() throws ProtocolException {
+        assertTrue(finder.uiPresenter("A").contains("TERM: A"));
+    }
+    @Test
+    public void caseTest() throws ProtocolException {
 
+        assertTrue(finder.uiPresenter("a").contains("TERM: A"));
+        assertTrue(finder.uiPresenter("Alkaloid").contains("TERM: ALKALOID"));
+    }
+    @Test
+    public void pageTurnMatchCaseTest() throws ProtocolException {
+        assertTrue(finder.uiPresenter("Alkaloid").contains("TERM: ALKALOID"));
+    }
 
+    @Test
+    public void nonExistentTest() throws ProtocolException {
+        assertEquals(finder.uiPresenter("-2"),(msg.getNotPresent()));
     }
 }
