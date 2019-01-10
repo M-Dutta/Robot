@@ -38,7 +38,7 @@ public class UI extends Application{
     }
 
         @Override
-        public void start(Stage primaryStage) throws Exception {
+        public void start(Stage primaryStage)  {
             primaryStage.setTitle("Robo Dictionary");
 
             GridPane grid = new GridPane();
